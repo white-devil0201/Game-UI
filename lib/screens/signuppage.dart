@@ -55,18 +55,18 @@ class SignupPage extends StatelessWidget {
                 ),
                 PasswordInput(),
                 SizedBox(
-                  height: 25.0,
+                  height: 22.0,
                 ),
                 BottomBtn(
                   size: size,
                   imagename: "assets/images/signup_btn.png",
                 ),
                 SizedBox(
-                  height: 15.0,
+                  height: 12.0,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                    bottom: 25.0,
+                    bottom: 22.0,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

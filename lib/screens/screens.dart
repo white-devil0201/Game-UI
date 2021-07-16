@@ -4,3 +4,4 @@ export 'homepage.dart';
 export 'body.dart';
 export 'latestevent.dart';
 export 'lebody.dart';
+export 'ledetail.dart';

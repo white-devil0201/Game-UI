@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:game/screens/screens.dart';
 
 class LePage extends StatefulWidget {
   const LePage({
@@ -11,44 +12,10 @@ class LePage extends StatefulWidget {
 }
 
 class _LePageState extends State<LePage> {
-  final List<String> _listItem = [
-    'assets/images/legrid.png',
-    'assets/images/legrid.png',
-    'assets/images/legrid.png',
-    'assets/images/legrid.png',
-    'assets/images/legrid.png',
-    'assets/images/legrid.png',
-    'assets/images/legrid.png',
-    'assets/images/legrid.png',
-  ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return /*Scaffold(
-      body: Expanded(
-        child: GridView(
-          physics: BouncingScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 5.0,
-            mainAxisSpacing: 5.0,
-          ),
-          children: _listItem
-              .map(
-                (item) => Card(
-                  color: Colors.blue,
-                  elevation: 0,
-                  child: Container(),
-                ),
-              )
-              .toList(),
-        ),
-      ),
-    );
-  }
-}*/
-
-        Expanded(
+    return Expanded(
       child: ListView(
         children: <Widget>[
           SizedBox(
@@ -109,86 +76,99 @@ class _LePageState extends State<LePage> {
         right: 10.0,
       ),
       child: InkWell(
-        onTap: () {},
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(imgPath),
-              fit: BoxFit.fill,
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => LeDetail(
+                assetPath: imgPath,
+              ),
             ),
-            borderRadius: BorderRadius.circular(10.0),
-
-            /*  boxShadow: [
-              BoxShadow(
-                color: Colors.blue.withOpacity(0.5),
-                blurRadius: 50,
-                spreadRadius: 60,
-                offset: Offset(0, 150),
-              ),
-            ],*/
-          ),
-          child: Column(
-            children: [
-              Transform.translate(
-                offset: Offset(10, 5),
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  color: Colors.blue,
+          );
+        },
+        child: Stack(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(imgPath),
+                  fit: BoxFit.fill,
                 ),
+                borderRadius: BorderRadius.circular(10.0),
               ),
-              Transform.translate(
-                offset: Offset(50, -30),
-                child: Container(
-                  height: 40,
-                  width: 30,
-                  margin: EdgeInsets.symmetric(horizontal: 50, vertical: 40),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6.0),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 5.0),
-                        child: Text(
-                          ledate,
-                          style: TextStyle(
-                            fontFamily: 'inter',
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
+              child: Column(
+                children: [
+                  Transform.translate(
+                    offset: Offset(50, -30),
+                    child: Container(
+                      height: 40,
+                      width: 30,
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 50, vertical: 40),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6.0),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5.0),
+                            child: Text(
+                              ledate,
+                              style: TextStyle(
+                                fontFamily: 'inter',
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
-                        ),
+                          Text(
+                            lemonth,
+                            style: TextStyle(
+                              fontFamily: 'inter',
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        lemonth,
-                        style: TextStyle(
-                          fontFamily: 'inter',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Hero(
-                tag: imgPath,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        imgPath,
-                      ),
-                      fit: BoxFit.cover,
                     ),
                   ),
+                  Hero(
+                    tag: imgPath,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            imgPath,
+                          ),
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 7.0,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                gradient: LinearGradient(
+                  begin: FractionalOffset.topCenter,
+                  end: FractionalOffset.bottomCenter,
+                  colors: [
+                    Colors.black.withOpacity(0.0),
+                    Colors.black.withOpacity(1.0),
+                  ],
+                  stops: [-1.0, 0.8],
                 ),
               ),
-              SizedBox(
-                height: 7.0,
-              ),
-              Text(
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 160.0),
+              child: Text(
                 ledes,
                 style: TextStyle(
                   fontFamily: 'inter',
@@ -198,8 +178,8 @@ class _LePageState extends State<LePage> {
                 ),
                 textAlign: TextAlign.center,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
