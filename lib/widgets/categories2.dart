@@ -11,14 +11,19 @@ class Categories2State extends State<Categories2> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 80,
+      width: double.infinity,
       margin: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height / 50,
-          left: MediaQuery.of(context).size.width / 12,
-          right: MediaQuery.of(context).size.width / 12),
+        top: MediaQuery.of(context).size.height / 50,
+        left: MediaQuery.of(context).size.width / 12,
+        right: MediaQuery.of(context).size.width / 12,
+      ),
       child: TabBar(
         isScrollable: true,
         unselectedLabelColor: Colors.white,
         labelColor: Colors.red,
+        indicatorColor: Colors.transparent,
+        indicatorWeight: 0.2,
         onTap: (index) {
           switch (index) {
             case 0:
@@ -40,7 +45,7 @@ class Categories2State extends State<Categories2> {
               icon: Stack(children: [
                 Padding(
                   padding: const EdgeInsets.only(
-                    bottom: 5.0,
+                    bottom: 10.0,
                     left: 10.0,
                     top: 9.0,
                   ),

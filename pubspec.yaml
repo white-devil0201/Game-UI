@@ -28,11 +28,16 @@ dev_dependencies:
 
 flutter:
   fonts:
+    - family: Bangers
+      fonts:
+        - asset: fonts/Bangers-Regular.ttf
+          weight: 400
+   
     - family: BerkshireSwash
       fonts:
         - asset: fonts/BerkshireSwash-Regular.ttf
           weight: 700
-   
+          
   uses-material-design: true
 
   

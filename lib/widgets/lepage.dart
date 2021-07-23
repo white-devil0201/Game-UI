@@ -81,6 +81,8 @@ class _LePageState extends State<LePage> {
             MaterialPageRoute(
               builder: (context) => LeDetail(
                 assetPath: imgPath,
+                ldate: ledate,
+                lmonth: lemonth,
               ),
             ),
           );
